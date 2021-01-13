@@ -22,7 +22,7 @@ list *initlist(int n){
 
 list *inserlist(list *L, int x, int n) {
 	list *head = L;
-	for (int i = 0; i < n-1; i++)
+	for (int i = 1; i < n; i++)
 	{
 		head = head->next;
 		if (head==NULL)
@@ -38,8 +38,51 @@ list *inserlist(list *L, int x, int n) {
 	return L;
 }
 
+list *delete_list(list *L, int n) {
+	list *head = L;
+	for (int i =1 ; i < n; i++)
+	{
+		head = head->next;
+	}
+	if (head->next==NULL)
+	{
+		printf_s("Î»ÖÃ³¬³ö¡£");
+		return L;
+	}
+	head->next = head->next->next;
+	return L;
+}
 
+int search_list(list *L, int x) {
+	list *head = L;
+	int n=1;
+	head = head->next;
+	while (head!=NULL)
+	{
+		if (head->score==x)
+		{
+			return n;
+		}
+		head = head->next;
+		n++;
+	}
+	return -1;
+}
 
+list *alter_list(list *L, int x, int n) {
+	list *head = L;
+	head = head->next;
+	for (int i = 1; i < n; i++)
+	{
+		head = head->next;
+		if (head==NULL)
+		{
+			return L;
+		}
+	}
+	head->score = x;
+	return L;
+}
 
 void printlist(list *L) {
 	list *head = L;
