@@ -22,7 +22,7 @@ list *initlist(int n){
 
 list *inserlist(list *L, int x, int n) {
 	list *head = L;
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n-1; i++)
 	{
 		head = head->next;
 		if (head==NULL)
@@ -37,6 +37,8 @@ list *inserlist(list *L, int x, int n) {
 	head->next = a;
 	return L;
 }
+
+
 
 
 void printlist(list *L) {
